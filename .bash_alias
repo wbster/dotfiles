@@ -1,0 +1,108 @@
+# =====
+# navigation
+# =====
+alias ..='cd ..'
+alias ...='cd ../..'
+
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+tmpcd() {
+    local tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+}
+
+# =====
+# ls
+# =====
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lt='ls -altr'
+alias lh='ls -lh'
+alias lS='ls -1FSsh'
+
+# =====
+# grep
+# =====
+alias grep='grep --color=auto'
+
+# =====
+# git
+# =====
+alias cs='config status'
+alias ca='config add'
+alias g='git'
+alias gst='git status'
+alias gco='git checkout'
+alias gcm='git checkout main'
+alias gcb='git checkout -b'
+alias gpl='git pull'
+alias gps='git push'
+alias gadd='git add'
+alias gcom='git commit'
+alias gdiff='git diff'
+alias glog='git log --oneline --graph --decorate'
+alias gbr='git branch'
+alias gbrd='git branch -d'
+alias gbrD='git branch -D'
+alias gstash='git stash'
+alias gpop='git stash pop'
+alias gfetch='git fetch'
+alias gmerge='git merge'
+alias grebase='git rebase'
+alias greset='git reset'
+alias gclean='git clean -fd'
+
+# =====
+# docker
+# =====
+alias d='docker'
+alias dps='docker ps'
+alias dcp='docker compose'
+
+# =====
+# system
+# =====
+alias c='clear'
+alias h='history'
+alias hist='history | grep'
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowdate='date +"%d-%m-%Y"'
+alias ports='netstat -tulanp'
+alias ip='ip -c'
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+alias top='btop'
+
+# =====
+# edit
+# =====
+alias v='vim'
+alias s='sudo'
+
+# =====
+# utils
+# =====
+alias home='cd ~'
+alias wget='wget -c'
+alias untar='tar -zxvf'
+alias sha='shasum -a 256'
+alias diff='diff --color=auto'
+
+# =====
+# network
+# =====
+alias ping='ping -c 5'
+alias myip='curl ipinfo.io/ip'
+alias localip='hostname -I'
+
+# =====
+# other
+# =====
+alias reload='source ~/.bashrc'
+alias aliases='cat ~/.bash_alias | grep alias'
+
