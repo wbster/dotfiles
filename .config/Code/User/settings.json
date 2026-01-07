@@ -174,7 +174,6 @@
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
 	"workbench.experimental.enableNewProfilesUI": true,
-	"workbench.colorTheme": "GitHub Dark Dimmed",
 	"explorer.fileNesting.patterns": {
 		"*.ts": "${capture}.js",
 		"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
@@ -221,4 +220,5 @@
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"workbench.colorTheme": "GitHub Dark Dimmed",
 }
