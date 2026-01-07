@@ -1,0 +1,17 @@
+[alias]
+	# View the current working tree status using the short format.
+	s = status -s
+    whoami = config user.email
+	empty = commit --allow-empty -m "Empty-Commit"
+	ui = config receive.denyCurrentBranch UpdateInstead
+
+[pull]
+	rebase = false
+	merge = true
+
+[core]
+	ignorecase = false
+	excludesFile = "~/.gitexcludes"
+
+[init]
+	defaultBranch = main
