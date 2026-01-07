@@ -221,4 +221,5 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"workbench.colorTheme": "GitHub Dark Dimmed",
+	"editor.fontFamily": "'JetBrains Mono', monospace",
 }
