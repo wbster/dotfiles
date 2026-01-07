@@ -31,6 +31,7 @@ alias grep='grep --color=auto'
 # =====
 # git
 # =====
+alias lg='lazygit'
 alias cs='config status'
 alias ca='config add'
 alias g='git'
