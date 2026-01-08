@@ -14,22 +14,6 @@
 	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
 	"liveshare.authenticationProvider": "GitHub",
 	"synthwave84.brightness": "0.45",
-	"atlascode.jira.enabled": true,
-	"atlascode.bitbucket.enabled": false,
-	"atlascode.jira.jqlList": [
-		{
-			"id": "af238561-be7a-4a54-b357-ea7521e38f59",
-			"enabled": true,
-			"name": "My jira.zaebumba.com Issues",
-			"query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
-			"siteId": "jira.zaebumba.com",
-			"monitor": true
-		}
-	],
-	"atlascode.jira.lastCreateSiteAndProject": {
-		"siteId": "jira.zaebumba.com",
-		"projectKey": "VIEW3D"
-	},
 	"go.toolsManagement.autoUpdate": true,
 	"redhat.telemetry.enabled": false,
 	"zenMode.fullScreen": false,
