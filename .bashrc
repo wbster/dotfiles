@@ -29,5 +29,19 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+
     source /usr/share/bash-completion/bash_completion
+    source <(docker completion bash)
+
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+
+    eval $(/opt/homebrew/bin/brew shellenv)
+
+    [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+    if [ -f "$BREW_PREFIX/etc/profile.d/bash_completion.sh" ]; then
+        . "$BREW_PREFIX/etc/profile.d/bash_completion.sh"
+    fi
+
+    source <(docker completion bash)
 fi
