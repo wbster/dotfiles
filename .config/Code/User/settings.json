@@ -206,4 +206,5 @@
 	},
 	"workbench.colorTheme": "GitHub Dark Dimmed",
 	"editor.fontFamily": "'JetBrains Mono', monospace",
+	"terminal.external.linuxExec": "kitty",
 }
