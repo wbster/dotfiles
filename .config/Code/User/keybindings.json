@@ -144,5 +144,10 @@
         "key": "ctrl+shift+left",
         "command": "-editor.action.smartSelect.shrink",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "isLinux"
     }
 ]
