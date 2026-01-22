@@ -59,3 +59,8 @@ export SITL_RITW_TERMINAL="kitty --hold sh -c"
 if command -v fzf >/dev/null 2>&1; then
     eval "$(fzf --bash)"
 fi
+
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+    alias cd="z"
+fi
