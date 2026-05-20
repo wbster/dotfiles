@@ -1,0 +1,27 @@
+{
+	"Vue 3 Composition Setup": {
+		"prefix": "v3base",
+		"body": [
+			"<script setup lang='ts'>",
+			"//",
+			"</script>",
+			"",
+			"<template>",
+			"  <slot>$0</slot>",
+			"</template>"
+		],
+		"description": "Базовая структура Vue 3 с Script Setup"
+	},
+	"Vue Props": {
+		"prefix": "vprops",
+		"body": [
+			"const props = defineProps({",
+			"  ${1:propName}: {",
+			"    type: ${2:String},",
+			"    required: ${3:true}",
+			"  }",
+			"})"
+		],
+		"description": "Определение пропсов"
+	},
+}

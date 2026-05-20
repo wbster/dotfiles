@@ -1,0 +1,72 @@
+{
+	"Vue 3 Composable": {
+		"prefix": "vuse",
+		"body": [
+			"import { ref, onMounted, onUnmounted } from 'vue'",
+			"",
+			"export function use${1:Feature}() {",
+			"  const ${2:data} = ref(${3:null})",
+			"",
+			"  const ${4:action} = () => {",
+			"    $0",
+			"  }",
+			"",
+			"  return {",
+			"    ${2:data},",
+			"    ${4:action}",
+			"  }",
+			"}"
+		],
+		"description": "Шаблон для создания Vue 3 Composable"
+	},
+	"Vue Ref": {
+		"prefix": "vref",
+		"body": [
+			"const ${1:name} = ref(${2:initialValue})"
+		],
+		"description": "Создание реактивной переменной ref"
+	},
+	"Vue Reactive": {
+		"prefix": "vreact",
+		"body": [
+			"const ${1:state} = reactive({",
+			"  ${2:key}: ${3:value}",
+			"})"
+		],
+		"description": "Создание реактивного объекта reactive"
+	},
+	"Vue OnMounted": {
+		"prefix": "vmount",
+		"body": [
+			"onMounted(() => {",
+			"  $0",
+			"})"
+		],
+		"description": "Хук жизненного цикла onMounted"
+	},
+	"Vue Watch": {
+		"prefix": "vwatch",
+		"body": [
+			"watch(() => ${1:source}, (newValue, oldValue) => {",
+			"  $0",
+			"})"
+		],
+		"description": "Слежение за изменением watch"
+	},
+	"Vue Emits": {
+		"prefix": "vemit",
+		"body": [
+			"const emit = defineEmits(['${1:eventName}'])"
+		],
+		"description": "Определение событий emit"
+	},
+	"Vue Computed": {
+		"prefix": "vcomp",
+		"body": [
+			"const ${1:computedValue} = computed(() => {",
+			"  return ${2:logic}",
+			"})"
+		],
+		"description": "Вычисляемое свойство computed"
+	}
+}

@@ -1,0 +1,144 @@
+{
+	// Place your snippets for typescript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"TS Singleton Pattern": {
+		"prefix": "ts-singleton",
+		"body": [
+			"class ${1:ClassName} {",
+			"  private static instance: ${1:ClassName};",
+			"",
+			"  private constructor() {}",
+			"",
+			"  public static getInstance(): ${1:ClassName} {",
+			"    if (!${1:ClassName}.instance) {",
+			"      ${1:ClassName}.instance = new ${1:ClassName}();",
+			"    }",
+			"    return ${1:ClassName}.instance;",
+			"  }",
+			"}"
+		],
+		"description": "Классический паттерн Одиночка"
+	},
+	"TS Abstract Repository": {
+		"prefix": "ts-repo",
+		"body": [
+			"interface IRead<T> {",
+			"  find(item: T): Promise<T[]>;",
+			"  findOne(id: string): Promise<T>;",
+			"}",
+			"",
+			"interface IWrite<T> {",
+			"  create(item: T): Promise<boolean>;",
+			"  update(id: string, item: T): Promise<boolean>;",
+			"  delete(id: string): Promise<boolean>;",
+			"}",
+			"",
+			"export abstract class BaseRepository<T> implements IRead<T>, IWrite<T> {",
+			"  abstract find(item: T): Promise<T[]>;",
+			"  abstract findOne(id: string): Promise<T>;",
+			"  abstract create(item: T): Promise<boolean>;",
+			"  abstract update(id: string, item: T): Promise<boolean>;",
+			"  abstract delete(id: string): Promise<boolean>;",
+			"}"
+		],
+		"description": "Абстрактный слой репозитория"
+	},
+	"TS Type Guard": {
+		"prefix": "ts-guard",
+		"body": [
+			"function is${1:Type}(value: any): value is ${1:Type} {",
+			"  return value && typeof value === 'object' && '${2:property}' in value;",
+			"}"
+		],
+		"description": "Type Guard для проверки типов в рантайме"
+	},
+	"TS Utility Wrap Try-Catch": {
+		"prefix": "ts-safe",
+		"body": [
+			"async function safeExecute<T>(promise: Promise<T>): Promise<[T | null, Error | null]> {",
+			"  try {",
+			"    const data = await promise;",
+			"    return [data, null];",
+			"  } catch (error) {",
+			"    return [null, error as Error];",
+			"  }",
+			"}"
+		],
+		"description": "Утилита для обработки промисов без лишних try-catch блоков"
+	},
+	"TS Partial Update": {
+		"prefix": "ts-update",
+		"body": [
+			"type Update${1:Model}Dto = Partial<Omit<${1:Model}, 'id' | 'createdAt'>>;"
+		],
+		"description": "Тип для частичного обновления сущности (DTO)"
+	},
+	"Zod Object Schema with Inference": {
+		"prefix": "z-obj",
+		"body": [
+			"import { z } from 'zod';",
+			"",
+			"export const ${1:Name}Schema = z.object({",
+			"  ${2:id}: z.string().uuid(),",
+			"  $0",
+			"});",
+			"",
+			"export type ${1:Name} = z.infer<typeof ${1:Name}Schema>;"
+		],
+		"description": "Создает Zod схему и сразу выводит TypeScript тип"
+	},
+	"Zod Safe Parse Pattern": {
+		"prefix": "z-safe",
+		"body": [
+			"const result = ${1:schema}.safeParse(${2:data});",
+			"",
+			"if (!result.success) {",
+			"  console.error(result.error.format());",
+			"  return;",
+			"}",
+			"",
+			"const validatedData = result.data;"
+		],
+		"description": "Безопасный парсинг без throw для обработки ошибок через if"
+	},
+	"Zod API Response Wrapper": {
+		"prefix": "z-api",
+		"body": [
+			"import { z } from 'zod';",
+			"",
+			"export const createApiSchema = <T extends z.ZodTypeAny>(dataSchema: T) => ",
+			"  z.object({",
+			"    success: z.boolean(),",
+			"    data: dataSchema,",
+			"    message: z.string().optional(),",
+			"  });"
+		],
+		"description": "Функция-обертка для типизации стандартных ответов API"
+	},
+	"Zod Form Schema (Email/Pass)": {
+		"prefix": "z-form",
+		"body": [
+			"const ${1:Login}Schema = z.object({",
+			"  email: z.string().email({ message: \"Некорректный email\" }),",
+			"  password: z.string().min(8, { message: \"Минимум 8 символов\" }),",
+			"}).strict();"
+		],
+		"description": "Схема для валидации форм с кастомными сообщениями"
+	},
+	"Zod Refine (Custom Validation)": {
+		"prefix": "z-refine",
+		"body": [
+			"const ${1:PasswordConfirm}Schema = z.object({",
+			"  password: z.string(),",
+			"  confirm: z.string(),",
+			"}).refine((data) => data.password === data.confirm, {",
+			"  message: \"Пароли не совпадают\",",
+			"  path: [\"confirm\"],",
+			"});"
+		],
+		"description": "Кастомная валидация (например, подтверждение пароля)"
+	},
+}

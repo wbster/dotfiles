@@ -1,0 +1,201 @@
+{
+	"Function": {
+		"prefix": "f",
+		"body": "function ${1:name}(${2:params}) {\n\t$0\n}",
+		"description": "Обычная функция"
+	},
+	"Const": {
+		"prefix": "co",
+		"body": "const ${1:name} = ${2:value};",
+		"description": "Объявление константы"
+	},
+	"Arrow Function": {
+		"prefix": "af",
+		"body": "const ${1:name} = (${2:params}) => {\n\t$0\n};",
+		"description": "Стрелочная функция"
+	},
+	"Console Log": {
+		"prefix": "cl",
+		"body": "console.log($0);",
+		"description": "Лог в консоль"
+	},
+	"Console Log Variable": {
+		"prefix": "clv",
+		"body": "console.log('${1:variable}:', ${1:variable});",
+		"description": "Лог переменной с её именем"
+	},
+	"Import": {
+		"prefix": "im",
+		"body": "import { ${2:module} } from '${1:package}';",
+		"description": "Импорт модуля"
+	},
+	"UseState (React)": {
+		"prefix": "rus",
+		"body": "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialValue});",
+		"description": "React useState"
+	},
+	"Async Function": {
+		"prefix": "asf",
+		"body": "async function ${1:name}(${2:params}) {\n\t$0\n}",
+		"description": "Асинхронная функция"
+	},
+	"Debug Stringify": {
+		"prefix": "cls",
+		"body": [
+			"console.log('${1:Data}:', JSON.stringify(${1:Data}, null, 2));"
+		],
+		"description": "Вывод глубоких объектов в читаемом JSON-формате"
+	},
+	"Debug Trace": {
+		"prefix": "ctr",
+		"body": [
+			"console.group('🔍 Trace: ${1:Action}');",
+			"console.trace();",
+			"console.groupEnd();"
+		],
+		"description": "Стек вызовов внутри группировки"
+	},
+	"Performance Measure": {
+		"prefix": "clt",
+		"body": [
+			"console.time('⏱️ ${1:Timer}');",
+			"$0",
+			"console.timeEnd('⏱️ ${1:Timer}');"
+		],
+		"description": "Замер скорости выполнения участка кода"
+	},
+	"Debug Table": {
+		"prefix": "ctb",
+		"body": [
+			"console.table(${1:Variable});"
+		],
+		"description": "Отображение массивов объектов в виде таблицы"
+	},
+	"Print to console": {
+		"prefix": "clo",
+		"body": [
+			"console.log({$0})",
+		],
+		"description": "Log output to console"
+	},
+	"For In": {
+		"prefix": "foin",
+		"body": "for (const ${1:key} in ${2:object}) {\n\t$0\n}",
+		"description": "Цикл for...in"
+	},
+	"For Of": {
+		"prefix": "fof",
+		"body": "for (const ${1:item} of ${2:iterable}) {\n\t$0\n}",
+		"description": "Цикл for...of"
+	},
+	"Switch Case": {
+		"prefix": "sc",
+		"body": "switch (${1:key}) {\n\tcase ${2:value}:\n\t\t$0\n\t\tbreak;\n\tdefault:\n\t\tbreak;\n}",
+		"description": "Конструкция switch"
+	},
+	"Try Catch": {
+		"prefix": "tc",
+		"body": "try {\n\t$1\n} catch (${2:error}) {\n\t$0\n}",
+		"description": "Блок try...catch"
+	},
+	"Throw Error": {
+		"prefix": "the",
+		"body": "throw new Error('${1:message}');",
+		"description": "Выбросить ошибку"
+	},
+	"Throw": {
+		"prefix": "th",
+		"body": "throw $0;",
+		"description": "Инструкция throw"
+	},
+	"TODO": {
+		"prefix": "td",
+		"body": "// TODO: ${1:task} [by ${2:ТвоёИмя}, ${CURRENT_DATE}.${CURRENT_MONTH}.${CURRENT_YEAR}]",
+		"description": "TODO с именем и датой"
+	},
+	"Object Entries": {
+		"prefix": "oe",
+		"body": "Object.entries(${1:object}).forEach(([key, value]) => {\n\t$0\n});",
+		"description": "Обход ключей и значений объекта"
+	},
+	"Find and Do": {
+		"prefix": "fnd",
+		"body": "const ${1:found} = ${2:array}.find(x => x.id === ${3:id});\nif (${1:found}) {\n\t$0\n}",
+		"description": "Поиск элемента с последующей проверкой"
+	},
+	"Fast Reverse For": {
+		"prefix": "forr",
+		"body": "for (let ${1:i} = ${2:array}.length - 1; ${1:i} >= 0; ${1:i}--) {\n\tconst ${3:item} = ${2:array}[${1:i}];\n\t$0\n}",
+		"description": "Самый быстрый обратный цикл"
+	},
+	"Filter + Map in one pass": {
+		"prefix": "fima",
+		"body": "const ${1:result} = [];\nfor (let ${2:i} = 0; ${2:i} < ${3:array}.length; ${2:i}++) {\n\tconst ${4:item} = ${3:array}[${2:i}];\n\tif (${5:condition}) {\n\t\t${1:result}.push(${6:transform});\n\t}\n}",
+		"description": "Фильтрация и маппинг за один цикл"
+	},
+	"Fast Accumulator": {
+		"prefix": "foracc",
+		"body": "let ${1:acc} = ${2:0};\nfor (let ${3:i} = 0; ${3:i} < ${4:array}.length; ${3:i}++) {\n\t${1:acc} += ${4:array}[${3:i}];\n}\n$0",
+		"description": "Быстрая агрегация вместо reduce"
+	},
+	"For Cache Length": {
+		"prefix": "forc",
+		"body": "for (let ${1:i} = 0, ${2:len} = ${3:array}.length; ${1:i} < ${2:len}; ${1:i}++) {\n\tconst ${4:item} = ${3:array}[${1:i}];\n\t$0\n}",
+		"description": "Цикл с кэшированием длины массива"
+	},
+	"Fast Unique": {
+		"prefix": "uniq",
+		"body": "const ${1:uniqueArray} = [...new Set(${2:array})];",
+		"description": "Быстрое получение уникальных значений"
+	},
+	"Get Pixel Index": {
+		"prefix": "pix",
+		"body": "const ${1:idx} = (${2:y} * ${3:width} + ${4:x}) * 4;\nconst r = ${5:data}[${1:idx}];\nconst g = ${5:data}[${1:idx} + 1];\nconst b = ${5:data}[${1:idx} + 2];\nconst a = ${5:data}[${1:idx} + 3];",
+		"description": "Индекс и RGBA значения пикселя"
+	},
+	"Fast Pixel Loop": {
+		"prefix": "pixfor",
+		"body": "for (let ${1:i} = 0, ${2:len} = ${3:data}.length; ${1:i} < ${2:len}; ${1:i} += 4) {\n\t// ${3:data}[${1:i}] — Red\n\t// ${3:data}[${1:i}+1] — Green\n\t// ${3:data}[${1:i}+2] — Blue\n\t$0\n}",
+		"description": "Цикл по ImageData (RGBA)"
+	},
+	"Distance Squared": {
+		"prefix": "dist2",
+		"body": "const dx = ${1:x2} - ${2:x1};\nconst dy = ${3:y2} - ${4:y1};\nconst ${5:distSq} = dx * dx + dy * dy;",
+		"description": "Квадрат расстояния (быстрее чем sqrt)"
+	},
+	"Lerp": {
+		"prefix": "lerp",
+		"body": "const ${1:result} = ${2:start} + (${3:end} - ${2:start}) * ${4:t};",
+		"description": "Линейная интерполяция (t от 0 до 1)"
+	},
+	"AABB Collision": {
+		"prefix": "aabb",
+		"body": "if (${1:r1}.x < ${2:r2}.x + ${2:r2}.w &&\n    ${1:r1}.x + ${1:r1}.w > ${2:r2}.x &&\n    ${1:r1}.y < ${2:r2}.y + ${2:r2}.h &&\n    ${1:r1}.h + ${1:r1}.y > ${2:r2}.y) {\n\t$0\n}",
+		"description": "Столкновение прямоугольников (Axis-Aligned Bounding Box)"
+	},
+	"Uint32 View": {
+		"prefix": "u32",
+		"body": "const ${1:buf} = new Uint32Array(${2:imageData}.data.buffer);\n// Теперь ${1:buf}[i] — это весь пиксель целиком (0xAABBGGRR)",
+		"description": "Работа с цветом как с 32-битным целым числом"
+	},
+	"Fetch GET": {
+		"prefix": "fget",
+		"body": "const response = await fetch('${1:url}');\nif (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);\nconst ${2:data} = await response.json();\n$0",
+		"description": "Базовый GET запрос"
+	},
+	"Fetch POST": {
+		"prefix": "fpost",
+		"body": "const response = await fetch('${1:url}', {\n\tmethod: 'POST',\n\theaders: { 'Content-Type': 'application/json' },\n\tbody: JSON.stringify(${2:payload})\n});\nconst ${3:data} = await response.json();\n$0",
+		"description": "POST запрос с JSON телом"
+	},
+	"Fetch HEAD": {
+		"prefix": "fhead",
+		"body": "const response = await fetch('${1:url}', { method: 'HEAD' });\nconst ${2:size} = response.headers.get('content-length');\n$0",
+		"description": "HEAD запрос для проверки заголовков"
+	},
+	"API Wrapper": {
+		"prefix": "api",
+		"body": "const ${1:request} = async (${2:url}, ${3:options} = {}) => {\n\tconst res = await fetch(${2:url}, { ...${3:options} });\n\tif (!res.ok) throw new Error(res.statusText);\n\treturn res.json();\n};",
+		"description": "Универсальная обертка над fetch"
+	}
+}
